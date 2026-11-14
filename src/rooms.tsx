@@ -1,5 +1,5 @@
 import { Action, ActionPanel, Color, Icon, List, showToast, Toast, type LaunchProps } from "@raycast/api";
-import { getProgressIcon, useCachedPromise } from "@raycast/utils";
+import { useCachedPromise } from "@raycast/utils";
 import { useEffect, useRef, useState } from "react";
 import { TOGGLE_MESSAGE } from "./commands";
 import {
@@ -27,6 +27,12 @@ const TOGGLE_TITLE: Record<ToggleResult, string> = {
   paused: "Pause",
   playing: "Play Here",
 };
+
+/** A volume bar of 10 segments, made of text. An SVG progress icon did not render in the accessories. */
+function volumeBar(volume: number) {
+  const filled = volume > 0 ? Math.max(1, Math.round(volume / 10)) : 0;
+  return "▰".repeat(filled) + "▱".repeat(10 - filled);
+}
 
 async function loadAll() {
   const system = await load();
@@ -140,7 +146,7 @@ export default function Command(props: LaunchProps) {
         subtitle={models[room.uuid]}
         accessories={[
           ...(room.muted ? [{ icon: Icon.SpeakerOff, tooltip: "Muted" }] : []),
-          { icon: getProgressIcon(room.volume / 100, group ? Color.Yellow : Color.SecondaryText) },
+          { text: { value: volumeBar(room.volume), color: group ? Color.Yellow : Color.SecondaryText } },
           { text: String(room.volume).padStart(2, " ") },
         ]}
         actions={
