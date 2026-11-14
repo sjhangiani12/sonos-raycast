@@ -1,0 +1,123 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "sonos-control",
+  "title": "Sonos",
+  "description": "Change the volume and pick the rooms that play, from the keyboard.",
+  "icon": "icon.png",
+  "author": "sharan",
+  "categories": ["Media"],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "rooms",
+      "title": "Sonos Rooms",
+      "subtitle": "Sonos",
+      "description": "Show every room. Add or remove a room, and change its volume. Type a number to set the volume.",
+      "mode": "view"
+    },
+    {
+      "name": "volume-up",
+      "title": "Volume Up",
+      "subtitle": "Sonos",
+      "description": "Raise the volume of the rooms that play now.",
+      "mode": "no-view"
+    },
+    {
+      "name": "volume-down",
+      "title": "Volume Down",
+      "subtitle": "Sonos",
+      "description": "Lower the volume of the rooms that play now.",
+      "mode": "no-view"
+    },
+    {
+      "name": "set-volume",
+      "title": "Set Volume",
+      "subtitle": "Sonos",
+      "description": "Set the volume of the rooms that play now to a number from 0 to 100.",
+      "mode": "no-view",
+      "arguments": [{ "name": "volume", "type": "text", "placeholder": "0-100", "required": true }]
+    },
+    {
+      "name": "play-pause",
+      "title": "Play or Pause",
+      "subtitle": "Sonos",
+      "description": "Pause the rooms that play now, or start them again.",
+      "mode": "no-view"
+    },
+    {
+      "name": "toggle-room-1",
+      "title": "Toggle Living Room",
+      "subtitle": "Sonos",
+      "description": "Add the room to the group that plays, or remove it.",
+      "mode": "no-view",
+      "preferences": [
+        {
+          "name": "room",
+          "title": "Room Name",
+          "description": "The Sonos room that this command toggles.",
+          "type": "textfield",
+          "required": false,
+          "default": "Living Room"
+        }
+      ]
+    },
+    {
+      "name": "toggle-room-2",
+      "title": "Toggle Bathroom",
+      "subtitle": "Sonos",
+      "description": "Add the room to the group that plays, or remove it.",
+      "mode": "no-view",
+      "preferences": [
+        {
+          "name": "room",
+          "title": "Room Name",
+          "description": "The Sonos room that this command toggles.",
+          "type": "textfield",
+          "required": false,
+          "default": "Bathroom"
+        }
+      ]
+    },
+    {
+      "name": "toggle-room-3",
+      "title": "Toggle Sharan Bedroom",
+      "subtitle": "Sonos",
+      "description": "Add the room to the group that plays, or remove it.",
+      "mode": "no-view",
+      "preferences": [
+        {
+          "name": "room",
+          "title": "Room Name",
+          "description": "The Sonos room that this command toggles.",
+          "type": "textfield",
+          "required": false,
+          "default": "Sharan Bedroom"
+        }
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "name": "step",
+      "title": "Volume Step",
+      "description": "The number of points that one Volume Up or Volume Down moves.",
+      "type": "textfield",
+      "required": false,
+      "default": "3"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.93.0",
+    "@raycast/utils": "^1.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "typescript": "^5.6.0"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "dev": "ray develop",
+    "check-types": "tsc --noEmit"
+  }
+}
