@@ -26,20 +26,9 @@ Give a hotkey to each command that has no window. Then you never open Raycast to
 
 ## The rooms list
 
-```
-┌──────────────────────────────────────────────────────────────┐
-│  Search rooms, or type a volume                              │
-├──────────────────────────────────────────────────────────────┤
-│  Playing together                       Show Me · Joey Bada$$│
-│  ✓  Living Room      Beam                           ◔   32   │
-│  ✓  Bathroom         One SL                         ◑   45   │
-│  Not playing                                                 │
-│  ○  Bedroom          One SL                         ◔   23   │
-│  Whole home                                                  │
-│     Play in Every Room                                       │
-│     Pause Everything                                         │
-└──────────────────────────────────────────────────────────────┘
-```
+<p align="center">
+  <img src="assets/rooms.png" width="720" alt="The Sonos Rooms list in Raycast, with three rooms that play together">
+</p>
 
 | Key | Action on the selected room |
 | --- | --- |
